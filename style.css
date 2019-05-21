@@ -1,0 +1,289 @@
+body {
+  color: #999;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.wrraper {
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-top: 40px;
+  text-align: center;
+  -webkit-box-shadow: 2px 2px 2px #aaa;
+          box-shadow: 2px 2px 2px #aaa;
+}
+
+header {
+  background-color: #ddd;
+  padding-bottom: 60px;
+  margin-bottom: 30px;
+}
+
+header h2 {
+  padding: 50px 0px 10px 0px;
+  margin: 0;
+  color: #444;
+}
+
+header input#search-text {
+  width: 260px;
+  padding: 7px 5px;
+}
+
+section.node-list ul#list {
+  list-style: none;
+  padding: 0;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+section.node-list ul#list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  border-left: 4px solid #eee;
+  border-bottom: 2px solid #eee;
+  border-top: 4px solid white;
+  position: relative;
+  margin-bottom: 30px;
+  -webkit-animation: slideIn 1s ease;
+          animation: slideIn 1s ease;
+}
+
+section.node-list ul#list li .check-bullet {
+  position: absolute;
+  left: -28px;
+  top: -2px;
+}
+
+section.node-list ul#list li .note-label {
+  position: absolute;
+  left: 10px;
+  top: -15px;
+  color: #bbb;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+section.node-list ul#list li .note-label-edit {
+  -webkit-transform: translateY(-22px);
+          transform: translateY(-22px);
+}
+
+section.node-list ul#list li .note-label-edit::after {
+  content: "is in editing mode";
+}
+
+section.node-list ul#list li .note-saved::after {
+  content: " (SAVED)";
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  transition: -webkit-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+  transition: transform 2s ease-in-out, -webkit-transform 2s ease-in-out;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+
+section.node-list ul#list li .note-icons {
+  position: absolute;
+  right: 10px;
+  bottom: -14px;
+}
+
+section.node-list ul#list li .note-icons .fa {
+  font-size: 12px;
+}
+
+section.node-list ul#list li .note-icons .fa:hover {
+  cursor: pointer;
+}
+
+section.node-list ul#list li .note-icons .fa-edit {
+  color: green;
+  margin-right: 5px;
+}
+
+section.node-list ul#list li .note-icons .fa-times {
+  color: red;
+}
+
+section.node-list ul#list li input.edit-note {
+  width: 88%;
+  height: 30px;
+  font-size: 16px;
+  padding: 0px 0px 3px 10px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border: none;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+section.node-list ul#list li input.edit-note:disabled {
+  background-color: white;
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+section.node-list ul#list li input.edit-in-proc {
+  height: 45px;
+  padding: 0px 0px 8px 10px;
+}
+
+section.node-list ul#list .del-note {
+  -webkit-animation: delete .6s linear;
+          animation: delete .6s linear;
+}
+
+@-webkit-keyframes delete {
+  0% {
+  }
+  100% {
+    -webkit-transform: translateX(300px);
+            transform: translateX(300px);
+    opacity: 0;
+  }
+}
+
+@keyframes delete {
+  0% {
+  }
+  100% {
+    -webkit-transform: translateX(300px);
+            transform: translateX(300px);
+    opacity: 0;
+  }
+}
+
+section.node-list ul#list .done-note::after {
+  content: " DONE!";
+}
+
+.pusle {
+  -webkit-animation: pusle 2s infinite;
+          animation: pusle 2s infinite;
+  color: grey;
+  position: relative;
+}
+
+.pusle::after {
+  content: "Save";
+  height: 18px;
+  width: 30px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  position: absolute;
+  font-family: 'Josefin Sans', sans-serif;
+  padding-top: 10px;
+  top: -14px;
+  left: -16px;
+  -webkit-transform: none !important;
+          transform: none !important;
+}
+
+@-webkit-keyframes pusle {
+  0% {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pusle {
+  0% {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+aside.hide-list {
+  text-align: left;
+  padding-left: 60px;
+  margin-top: 50px;
+}
+
+aside.hide-list label {
+  font-size: 1rem;
+  border-bottom: 2px solid #eee;
+  padding: 10px;
+  cursor: pointer;
+}
+
+aside.hide-list input[type=checkbox] {
+  display: none;
+}
+
+section.add-note {
+  padding: 20px 0 80px 0;
+}
+
+section.add-note form#add {
+  padding: 50px 0 0 50px;
+}
+
+section.add-note form#add input[type=text] {
+  width: 250px;
+  padding: 4px;
+}
+
+section.add-note form#add input[type=submit] {
+  padding: 5px 15px 5px 15px;
+  background: limegreen;
+  border: none;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */

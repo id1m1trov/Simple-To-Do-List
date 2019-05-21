@@ -1,0 +1,254 @@
+body {
+    color: #999;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.wrraper {
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-top: 40px;
+    text-align: center;
+    box-shadow: 2px 2px 2px #aaa;
+}
+
+header {
+    background-color: #ddd;
+    padding-bottom: 60px;
+    margin-bottom: 30px;
+
+    h2 {
+        padding: 50px 0px 10px 0px;
+        margin: 0;
+        color: #444;
+    }
+
+    input#search-text {
+        width: 260px;
+        padding: 7px 5px;
+
+    }
+}
+
+section.node-list {
+
+    ul#list {
+        list-style: none;
+        padding: 0;
+        transition: all .5s ease;
+
+        li {
+            display: flex;
+            width: 80%;
+            height: 50px;
+            margin: 0 auto;
+            border-left: 4px solid #eee;
+            border-bottom: 2px solid #eee;
+            border-top: 4px solid white;
+            position: relative;
+            margin-bottom: 30px;
+            animation: slideIn 1s ease;
+
+
+            .check-bullet {
+                position: absolute;
+                left: -28px;
+                top: -2px;
+            }
+
+            .note-label {
+                position: absolute;
+                left: 10px;
+                top: -15px;
+                color: #bbb;
+                transition: all .5s ease-in-out;
+            }
+
+            // class only for editing mode // for the label
+            .note-label-edit {
+                transform: translateY(-22px);
+                &::after{
+                    content: "is in editing mode";
+                }
+            }
+
+            //class for "(saved)" wich will be delayed
+            .note-saved{
+                
+                &::after{
+                    content: " (SAVED)";
+                    transform: scale(0);
+                    transition: transform 2s ease-in-out;
+                    transition-delay: 1s;
+                }
+            }
+
+            .note-icons {
+                position: absolute;
+                right: 10px;
+                bottom: -14px;
+
+                .fa {
+                    font-size: 12px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .fa-edit {
+                    color: green;
+                    margin-right: 5px;
+                }
+
+                .fa-times {
+                    color: red;
+                }
+            }
+
+            
+            input.edit-note {
+                width: 88%;
+                height: 30px;
+                font-size: 16px;
+                padding: 0px 0px 3px 10px;
+                align-self: flex-end;
+                border: none;
+                transition: all .5s ease-in-out;
+               
+                &:disabled {
+                    background-color: white;
+                }                
+            }
+
+            // slideIN animation for the list elemnts
+            @keyframes slideIn {
+                0% {
+                    transform: translateY(-50px);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            // class only for editing mode  // for the input
+            input.edit-in-proc {
+                height: 45px;
+                padding: 0px 0px 8px 10px;
+            }
+
+            
+        }
+        //class for deleting note
+        .del-note{
+            animation: delete .6s linear;
+        }
+        @keyframes delete {
+           
+            0%{
+                
+            }
+            100% {
+                transform: translateX(300px);
+                opacity: 0;
+            }
+            
+        }
+
+        // done note behavior
+        .done-note {
+            &::after {
+                content: " DONE!";
+            }
+        }
+    }
+}
+
+// edit animation 
+.pusle {
+    animation: pusle 2s infinite;
+    color: grey;
+    position: relative;
+    
+        &::after {
+            content: "Save";
+            height: 18px;
+            width: 30px;
+            font-size: 10px;
+            text-align: center;
+            border-radius: 5px;
+            background-color:green;
+            color: white;
+            position: absolute;
+            font-family: 'Josefin Sans', sans-serif;
+            padding-top: 10px;
+            top: -14px;
+            left: -16px;
+            transform: none !important;
+        }
+    
+
+}
+
+
+@keyframes pusle {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+}
+
+
+
+aside.hide-list {
+    text-align: left;
+    padding-left: 60px;
+    margin-top: 50px;
+
+    label {
+        font-size: 1rem;
+        border-bottom: 2px solid #eee;
+        padding: 10px;
+        cursor: pointer;
+        //visibility: hidden;
+    }
+
+    input[type=checkbox] {
+       display: none;
+    }
+}
+
+
+section.add-note {
+    padding: 20px 0 80px 0;
+
+    form#add {
+        padding: 50px 0 0 50px;
+
+        input[type=text] {
+            width: 250px;
+            padding: 4px;
+        }
+
+        input[type=submit] {
+            padding: 5px 15px 5px 15px;
+            background: limegreen;
+            border: none;
+            color: white;
+        }
+    }
+}
